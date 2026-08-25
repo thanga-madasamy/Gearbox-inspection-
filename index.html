@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Gearbox Inspection Hub - Bolt, Washer & Bearing Detection</title>
+    <title>Gearbox Line Hub</title>
     <style>
         :root {
-            --bg: #0f172a;
+            --bg: #0b1120;
             --card-bg: #1e293b;
             --accent: #38bdf8;
             --success: #22c55e;
-            --warning: #f59e0b;
             --text: #f8fafc;
             --text-muted: #94a3b8;
             --border: #334155;
@@ -18,31 +17,24 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background-color: var(--bg);
             color: var(--text);
             margin: 0;
-            padding: 20px;
+            padding: 24px;
             box-sizing: border-box;
-            -webkit-user-select: none;
         }
 
-        /* Edge-Only Access Restriction Screen */
         #edge-guard {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            top: 0; left: 0; width: 100vw; height: 100vh;
             background-color: var(--bg);
             z-index: 9999;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
-            box-sizing: border-box;
         }
 
         .guard-card {
@@ -50,17 +42,11 @@
             padding: 32px;
             border-radius: 16px;
             border: 1px solid var(--border);
-            max-width: 450px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            max-width: 400px;
         }
 
-        .guard-icon { font-size: 3rem; margin-bottom: 16px; }
-        .guard-title { color: var(--danger); font-size: 1.5rem; margin-bottom: 12px; font-weight: bold; }
-        .guard-text { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; }
-
-        /* Dashboard Main Layout */
         .container { max-width: 1200px; margin: 0 auto; }
-        
+
         header {
             display: flex;
             justify-content: space-between;
@@ -87,8 +73,7 @@
         }
 
         .pulse-dot {
-            width: 8px;
-            height: 8px;
+            width: 8px; height: 8px;
             background-color: var(--success);
             border-radius: 50%;
             box-shadow: 0 0 8px var(--success);
@@ -105,13 +90,12 @@
             border-radius: 12px;
             padding: 20px;
             border: 1px solid var(--border);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
         }
 
         .card h2 {
             margin-top: 0;
             margin-bottom: 16px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -131,36 +115,19 @@
             font-weight: 500;
         }
 
-        .btn-link:active {
-            background: var(--border);
-            color: var(--accent);
-        }
-
         .pipeline-step {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 12px 0;
+            padding: 10px 0;
             border-bottom: 1px solid #273549;
             font-size: 0.9rem;
         }
 
-        .pipeline-step:last-child {
-            border-bottom: none;
-        }
+        .pipeline-step:last-child { border-bottom: none; }
 
-        .step-label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--success);
-        }
+        .step-label { display: flex; align-items: center; gap: 10px; }
+        .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--success); }
 
         .tag {
             font-size: 0.75rem;
@@ -182,97 +149,74 @@
             box-sizing: border-box;
             resize: vertical;
             font-family: inherit;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            -webkit-user-select: text;
         }
 
-        textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        .saved-status {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 8px;
-            text-align: right;
-        }
+        .saved-status { font-size: 0.8rem; color: var(--text-muted); margin-top: 8px; text-align: right; }
     </style>
 </head>
 <body>
 
-    <!-- Edge Restriction Guard -->
     <div id="edge-guard">
         <div class="guard-card">
-            <div class="guard-icon">🚫</div>
-            <div class="guard-title">Access Restricted</div>
-            <div class="guard-text">
-                This Gearbox Line Dashboard requires <strong>Microsoft Edge</strong>.<br><br>
-                Please open Microsoft Edge on your iPad or PC to access the dashboard.
-            </div>
+            <h2 style="color:var(--danger)">🚫 Access Restricted</h2>
+            <p style="color:var(--text-muted)">This dashboard is restricted to Microsoft Edge.</p>
         </div>
     </div>
 
-    <!-- Main Dashboard UI -->
     <div class="container" id="dashboard-content">
         <header>
             <div class="title-group">
-                <h1>⚙️ Gearbox Inspection Hub</h1>
-                <p>Bolt, Washer & Bearing Detection Platform</p>
+                <h1>⚙️ Gearbox Line Hub</h1>
+                <p>Assembly Line Operations & Detection Specs</p>
             </div>
             <div class="status-badge">
-                <span class="pulse-dot"></span> Edge Certified
+                <span class="pulse-dot"></span> Line Connected
             </div>
         </header>
 
         <div class="grid">
-            <!-- Project Links -->
             <div class="card">
-                <h2>🔗 Rapid Access Tools</h2>
+                <h2>🔗 Line Operations</h2>
                 <a href="https://github.com/thanga-madasamy/Gearbox-inspection-" target="_blank" class="btn-link">
                     <span>GitHub Repository</span> ↗
                 </a>
                 <a href="https://colab.research.google.com" target="_blank" class="btn-link">
-                    <span>Google Colab (Model Export)</span> ↗
+                    <span>Google Colab Model Compiler</span> ↗
                 </a>
                 <a href="https://www.icloud.com" target="_blank" class="btn-link">
-                    <span>iCloud Model Storage</span> ↗
+                    <span>iCloud Model Drop</span> ↗
                 </a>
             </div>
 
-            <!-- Class & Pipeline Detector Specs -->
             <div class="card">
-                <h2>⚡ Target Classes & Model Status</h2>
+                <h2>⚡ Target Detection Specs</h2>
                 <div class="pipeline-step">
                     <div class="step-label"><span class="dot"></span> Class 0: Bolts</div>
-                    <span class="tag">Active Detection</span>
+                    <span class="tag">Active</span>
                 </div>
                 <div class="pipeline-step">
                     <div class="step-label"><span class="dot"></span> Class 1: Washers</div>
-                    <span class="tag">Active Detection</span>
+                    <span class="tag">Active</span>
                 </div>
                 <div class="pipeline-step">
                     <div class="step-label"><span class="dot"></span> Class 2: Bearings</div>
-                    <span class="tag">Active Detection</span>
+                    <span class="tag">Active</span>
                 </div>
                 <div class="pipeline-step">
-                    <div class="step-label"><span class="dot"></span> iPadOS Vision Engine</div>
-                    <span class="tag">Center Reticle Verification</span>
+                    <div class="step-label"><span class="dot"></span> iPad Alignment Logic</div>
+                    <span class="tag">Center Reticle (±8%)</span>
                 </div>
             </div>
 
-            <!-- Assembly Line Shared Notepad -->
             <div class="card">
                 <h2>📝 Line Notes (Shared Across iPads)</h2>
-                <textarea id="notes" placeholder="Enter component count verification or quality notes..."></textarea>
-                <div class="saved-status" id="save-status">Auto-saved to local storage</div>
+                <textarea id="notes" placeholder="Type station updates here..."></textarea>
+                <div class="saved-status" id="save-status">Auto-saved locally</div>
             </div>
         </div>
     </div>
 
     <script>
-        // Restrict usage exclusively to Microsoft Edge
         function checkIsMicrosoftEdge() {
             const ua = navigator.userAgent;
             return ua.includes("EdgiOS") || ua.includes("Edg/") || ua.includes("Edge");
@@ -283,18 +227,14 @@
             document.getElementById('dashboard-content').style.display = 'none';
         }
 
-        // Persistent Notepad Storage
         const notesArea = document.getElementById('notes');
         const saveStatus = document.getElementById('save-status');
 
-        notesArea.value = localStorage.getItem('gearbox_inspection_notes') || '';
-
+        notesArea.value = localStorage.getItem('gearbox_line_notes') || '';
         notesArea.addEventListener('input', () => {
-            localStorage.setItem('gearbox_inspection_notes', notesArea.value);
+            localStorage.setItem('gearbox_line_notes', notesArea.value);
             saveStatus.textContent = 'Saving...';
-            setTimeout(() => {
-                saveStatus.textContent = 'Auto-saved to local storage';
-            }, 600);
+            setTimeout(() => saveStatus.textContent = 'Auto-saved locally', 600);
         });
     </script>
 </body>

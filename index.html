@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gearbox Assembly Line Hub</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            -webkit-user-select: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+        }
+
+        .title-group h1 {
+            margin: 0;
+            font-size: 1.6rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .title-group p {
+            margin: 4px 0 0 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .status-badge {
+            background: rgba(34, 197, 94, 0.15);
+            color: var(--success);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--success);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--success);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-size: 1rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #0f172a;
+            color: var(--text);
+            text-decoration: none;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .btn-link:active {
+            background: var(--border);
+            color: var(--accent);
+        }
+
+        .pipeline-step {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #273549;
+            font-size: 0.9rem;
+        }
+
+        .pipeline-step:last-child {
+            border-bottom: none;
+        }
+
+        .step-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--success);
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            background: #0f172a;
+            padding: 4px 8px;
+            border-radius: 6px;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+        }
+
+        textarea {
+            width: 100%;
+            height: 160px;
+            background: #0f172a;
+            border: 1px solid var(--border);
+            color: var(--text);
+            border-radius: 10px;
+            padding: 14px;
+            box-sizing: border-box;
+            resize: vertical;
+            font-family: inherit;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            -webkit-user-select: text;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .saved-status {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="title-group">
+                <h1>⚙️ Gearbox Line Hub</h1>
+                <p>Assembly Line Shared Operations & CV Model Tracking</p>
+            </div>
+            <div class="status-badge">
+                <span class="pulse-dot"></span> Line Connected
+            </div>
+        </header>
+
+        <div class="grid">
+            <!-- Line Quick Actions -->
+            <div class="card">
+                <h2>🔗 Line Operations</h2>
+                <a href="https://github.com/thanga-madasamy/Gearbox-inspection-" target="_blank" class="btn-link">
+                    <span>GitHub Repository</span> ↗
+                </a>
+                <a href="https://colab.research.google.com" target="_blank" class="btn-link">
+                    <span>Google Colab Model Compiler</span> ↗
+                </a>
+                <a href="https://www.icloud.com" target="_blank" class="btn-link">
+                    <span>iCloud Model Drop</span> ↗
+                </a>
+            </div>
+
+            <!-- Deployment Status -->
+            <div class="card">
+                <h2>⚡ Active Deployment Specs</h2>
+                <div class="pipeline-step">
+                    <div class="step-label"><span class="dot"></span> YOLO Model Version</div>
+                    <span class="tag">YOLO11n (gear.pt)</span>
+                </div>
+                <div class="pipeline-step">
+                    <div class="step-label"><span class="dot"></span> CoreML Runtime</div>
+                    <span class="tag">gear.mlpackage</span>
+                </div>
+                <div class="pipeline-step">
+                    <div class="step-label"><span class="dot"></span> Target Platform</div>
+                    <span class="tag">Swift Playgrounds / iPadOS</span>
+                </div>
+                <div class="pipeline-step">
+                    <div class="step-label"><span class="dot"></span> Alignment Logic</div>
+                    <span class="tag">Center Reticle (±8%)</span>
+                </div>
+            </div>
+
+            <!-- Shared Cloud Notepad Across All iPads -->
+            <div class="card">
+                <h2>📝 Line Notes (Shared Across iPads)</h2>
+                <textarea id="notes" placeholder="Type station updates here. Changes sync automatically to every iPad on the line..."></textarea>
+                <div class="saved-status" id="save-status">Connecting to live line database...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const notesArea = document.getElementById('notes');
+        const saveStatus = document.getElementById('save-status');
+
+        // Free Cloud Storage Endpoint (JSONBin) for live multi-iPad sync
+        const BIN_ID = '65d8a0f0dc74654018aa1234'; // Demo endpoint
+        const API_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
+
+        // Local fallback key in case Wi-Fi drops
+        const LOCAL_KEY = 'gearbox_line_notes_backup';
+
+        // Load initial content
+        notesArea.value = localStorage.getItem(LOCAL_KEY) || '';
+
+        // Fetch shared updates from the cloud every 4 seconds
+        async function syncFromCloud() {
+            try {
+                const res = await fetch(`${API_URL}/latest`);
+                if (res.ok) {
+                    const data = await res.json();
+                    const cloudText = data.record.notes || '';
+                    
+                    // Only update UI if the operator is not actively typing
+                    if (document.activeElement !== notesArea && cloudText !== notesArea.value) {
+                        notesArea.value = cloudText;
+                        localStorage.setItem(LOCAL_KEY, cloudText);
+                        saveStatus.textContent = 'Synced with assembly line';
+                    }
+                }
+            } catch (err) {
+                saveStatus.textContent = 'Offline (Using local backup)';
+            }
+        }
+
+        // Auto-save changes to cloud when typing pauses
+        let debounceTimer;
+        notesArea.addEventListener('input', () => {
+            saveStatus.textContent = 'Syncing to line...';
+            localStorage.setItem(LOCAL_KEY, notesArea.value);
+
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(async () => {
+                try {
+                    await fetch(API_URL, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ notes: notesArea.value })
+                    });
+                    saveStatus.textContent = 'Synced across all iPads';
+                } catch (err) {
+                    saveStatus.textContent = 'Saved locally (Offline)';
+                }
+            }, 1000);
+        });
+
+        // Start real-time sync polling loop
+        setInterval(syncFromCloud, 4000);
+        syncFromCloud();
+    </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+path: C:/Users/z0050910/dev/washer_bolt_project/dataset_stage01
+train: images/train
+val: images/val
+
+names:
+  0: bolt
+  1: washer

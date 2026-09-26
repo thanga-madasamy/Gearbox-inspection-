@@ -3,5 +3,5 @@ train: images/train
 val: images/val
 
 names:
-  0: bolt
-  1: washer
+  0: washer
+  1: bolt
